@@ -10,7 +10,7 @@ According to our scenario, the total waiting time is reduced by 70%-80%.
 ## 2.1. Dependencies
  - Impala ( >=impala-2.5.0+cdh5.7.2 )
  - Cloudera Manager ( >=cdh5.7.2 )
- - Python3
+ - Python3 ( >= 3.5 )
  
 **Important: Testing OK on CDH 5.7.2 and 5.12.1, other versions are not guaranteed to be available.**
 
