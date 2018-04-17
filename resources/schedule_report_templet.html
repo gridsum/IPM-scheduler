@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>impala memory schedule report</title>
+</head>
+<body>
+<h3>description:</h3>
+<pre>HistoryQueryData:
+	based history query data: {{schedule_start_time}}-{{schedule_end_time}}
+MemUnit: GB
+TimeUnit: second
+</pre>
+
+<hr>
+
+<table border="1">
+    <tr>{% for column in df.columns %} <th> {{ column }} </th> {% end %} </tr>
+
+	{% for _, row in df.iterrows() %}
+	<tr>
+		{% for index, value in row.items() %}
+			{% if 'MemScheduled' in index and float(value) != 0 %}
+				<td> <div style="color:red;"> {{value}} </div> </td>
+			{% else %}
+				<td> {{value}} </td>
+			{% end %}
+		{% end %}
+	</tr>
+	{% end %}
+</table>
+</body>
+</html>

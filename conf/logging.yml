@@ -1,0 +1,33 @@
+version: 1
+disable_existing_loggers: False
+
+formatters:
+    simple:
+        format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    standard:
+        format: "%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s"
+
+handlers:
+    console_handler:
+        class: logging.StreamHandler
+        level: INFO
+        formatter: simple
+        stream: ext://sys.stdout
+
+    file_handler:
+        class: logging.handlers.TimedRotatingFileHandler
+        level: DEBUG
+        formatter: standard
+        when: D
+        backupCount: 1
+        filename: ${SCHEDULER_HOME}/logs/scheduler.logs
+
+loggers:
+    module:
+        level: ERROR
+        handlers: [console_handler]
+        propagate: no
+
+root:
+    level: INFO
+    handlers: [file_handler]

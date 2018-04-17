@@ -1,0 +1,79 @@
+# The configuration of cloudera manager section
+cloudera_manager:
+  # The server url, for example: https://server_host:443
+  server_url: 'server_url_value'
+  # The api version, default api_version is v17
+  api_version: 'v17'
+  # The cluster name, default cluster_name is "cluster"
+  cluster_name: "cluster"
+  # The username is a username with either the Full Administrator or Cluster Administrator role.
+  username: "username_value"
+  # The password is the password for the username.
+  password: "password_value"
+
+
+# The configuration of schedule section
+schedule:
+  # The threshold of available impalad number, if less than this threshold, skip this scheduling.
+  # default schedule_available_impalad_threshold is 1
+  schedule_available_impalad_threshold: 1
+  # The time interval of one scheduling, default schedule_interval_minutes is 30
+  schedule_interval_minutes: 30
+  # The unit of scheduling memory, memory unit is MB, default schedule_memory_unit is 1024
+  schedule_memory_unit: 1024
+  # The proportion of free memory from idle pools for scheduling, default free_memory_schedule_ratio is 0.8.
+  free_memory_schedule_ratio: 0.8
+  # The threshold(total waiting time of the pool) to decide whether the pool is busy,
+  # default busy_pool_threshold_seconds is 10
+  busy_pool_threshold_seconds: 10
+
+
+  # The module name of the scheduling policy, default schedule_module_name is "scheduler",
+  # default schedule_py_name is "priority_schedule", default schedule_class_name is "PrioritySchedule"
+  schedule_module_name: "scheduler"
+  # The py file name of the scheduling policy
+  schedule_py_name: "priority_schedule"
+  # The class name of the scheduling policy
+  schedule_class_name: "PrioritySchedule"
+
+
+  # The filter for fetching query information, default fetch_queries_filter is "query_type=query"
+  fetch_queries_filter: "query_type=query"
+  # The time range for fetching query information, default fetch_queries_timedelta_minutes is 5.
+  fetch_queries_timedelta_minutes: 5
+  # The option whether save the fetched query information to local, default enable_fetch_queries_file is false.
+  enable_fetch_queries_file: false
+
+
+# The configuration of pool section
+pool:
+  # The full name of pool participate in the scheduling
+  root.pool1:
+    # The minimum memory of this pool, memory unit: MB
+    min_mem: 0
+    # The maximum memory of this pool, memory unit: MB
+    max_mem: 1048576
+  root.pool2:
+    min_mem: 0
+    max_mem: 1048576
+
+
+# The configuration of email section
+email:
+  # The server used to send email
+  server: "server_value"
+  # The username for login email server, it's also the sender
+  username: "sender_value"
+  # The password for login email server
+  password: "password_value"
+  # The receivers, multiple recipients should be separated by commas
+  receivers: "receivers_value"
+
+
+# The configuration of report section. It is important to note that the report is only supported by email,
+# and if you need to get a report, update the related configuration of the email.
+report:
+  # The option whether schedule report will be send when schedule happens, default enable_schedule_report is true.
+  enable_schedule_report: true
+  # The option whether monitor report will be send when an exception occurs, default enable_monitor_report is true.
+  enable_monitor_report: true

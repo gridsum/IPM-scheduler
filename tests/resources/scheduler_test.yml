@@ -1,0 +1,26 @@
+schedule:
+  schedule_available_impalad_threshold: 1
+  schedule_interval_minutes: 30
+  schedule_memory_unit: 10
+  free_memory_schedule_ratio: 0.8
+  busy_pool_threshold_seconds: 10
+
+  schedule_module_name: "scheduler"
+  schedule_py_name: "priority_schedule"
+  schedule_class_name: "PrioritySchedule"
+
+  fetch_queries_filter: "query_type=query"
+  fetch_queries_timedelta_minutes: 5
+  fetch_queries_save_enable: true
+  fetch_queries_save_path: "../logs/data-{}.csv"
+
+pool:
+  root.test_pool1:
+    min_mem: 0
+    max_mem: 2000
+  root.test_pool2:
+    min_mem: 0
+    max_mem: 2000
+  root.test_pool3:
+    min_mem: 0
+    max_mem: 2000
