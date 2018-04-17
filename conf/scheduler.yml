@@ -73,7 +73,7 @@ email:
 # The configuration of report section. It is important to note that the report is only supported by email,
 # and if you need to get a report, update the related configuration of the email.
 report:
-  # The option whether schedule report will be send when schedule happens, default enable_schedule_report is true.
-  enable_schedule_report: true
-  # The option whether monitor report will be send when an exception occurs, default enable_monitor_report is true.
-  enable_monitor_report: true
+  # The option whether schedule report will be send when schedule happens, default enable_schedule_report is false.
+  enable_schedule_report: false
+  # The option whether monitor report will be send when an exception occurs, default enable_monitor_report is false.
+  enable_monitor_report: false
