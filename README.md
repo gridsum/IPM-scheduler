@@ -10,14 +10,14 @@ According to our scenario, the total waiting time is reduced by 70%-80%.
 ## 2.1. Dependencies
  - Impala ( >=impala-2.5.0+cdh5.7.2 )
  - Cloudera Manager ( >=cdh5.7.2 )
- - Python3
+ - Python3 ( >= 3.5 )
  
 **Important: Testing OK on CDH 5.7.2 and 5.12.1, other versions are not guaranteed to be available.**
 
 
 ## 2.2. Install
  >
-    $ git clone git@gitlab.gridsum.com:data-engineering/impala-toolbox/IPM-scheduler.git
+    $ git clone https://github.com/gridsum/IPM-scheduler.git
     $ cd IPM-scheduler
     $ python3 setup.py install
     $ echo "export SCHEDULER_HOME=\`pwd\`" >> ~/.bashrc  
